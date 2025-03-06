@@ -8,5 +8,6 @@ namespace OOP_A06_Architecture.View
 {
     class Interface
     {
+        
     }
 }
