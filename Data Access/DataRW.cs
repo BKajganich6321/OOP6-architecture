@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OOP_A06_Architecture.Data_Access
 {
-    internal class DataRW
+    public class DataRW
     {
         //initialize variables to read/write to file
         FileStream outputFile = null;
@@ -18,7 +18,7 @@ namespace OOP_A06_Architecture.Data_Access
         {
             try
             {
-                outputFile = new FileStream(fileName, FileMode.Append);
+                outputFile = new FileStream(fileName, FileMode.OpenOrCreate);
                 writer = new StreamWriter(outputFile);
                 writer.Write(gameData);
             }
@@ -47,12 +47,12 @@ namespace OOP_A06_Architecture.Data_Access
         /// <returns></returns>
         string ReadOutput(string fileName)
         {
-            string gameRecords = "";
+            string gameData = "";
             try
             {
                 outputFile = new FileStream(fileName, FileMode.Open);
                 reader = new StreamReader(outputFile);
-                gameRecords = reader.ReadToEnd();
+                gameData = reader.ReadToEnd();
             }
             catch (Exception e)
             {
@@ -69,6 +69,7 @@ namespace OOP_A06_Architecture.Data_Access
                     reader.Close();
                 }
             }
+            return gameData;
         }
     }
 }
