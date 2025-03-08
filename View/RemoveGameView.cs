@@ -8,5 +8,9 @@ namespace OOP_A06_Architecture.View
 {
     class RemoveGameView
     {
+        //if (Exists(game))
+        //{
+        //     gameList.Remove(game);
+        //}
     }
 }

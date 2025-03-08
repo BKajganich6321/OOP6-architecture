@@ -8,10 +8,9 @@ namespace OOP_A06_Architecture.Domain
 {
     internal class Game
     {
-        private static double[] priceArray = {10.99, 24.99, 49.99, 39.99, 9.99, 59.99, 29.99, 19.99, 33.99 };
-        private static int priceIndex = 0; 
+        private static int baseID = 100;
         private double price;
-        private int nameID;
+        private Guid gameID;
         private string manufacturer;
         private int stock;
         private string name;
@@ -22,10 +21,10 @@ namespace OOP_A06_Architecture.Domain
             set { price = value; }
         }
 
-        internal int NameID
+        internal Guid GameID
         {
-            get { return nameID; }
-            set { nameID = value; }
+            get { return gameID; }
+            set { gameID = value; }
         }
         
         internal string Manufacturer
@@ -43,6 +42,29 @@ namespace OOP_A06_Architecture.Domain
         {
             get { return name; }
             set { name = value; }
-        }         
+        } 
+        
+        ///Constructors
+        
+        internal Game()
+        {
+            GameID = Guid.NewGuid();
+        }
+
+        internal Game(double price, string manufacturer, int stock, string name)
+        {
+            Price = price;
+            GameID = Guid.NewGuid();
+            Manufacturer = manufacturer;
+            Stock = stock;
+            Name = name;
+        }
+
+        //Methods
+
+        internal void ChangeStock(Game game, int change)
+        {
+            game.Stock += change;
+        }   
     }
 }

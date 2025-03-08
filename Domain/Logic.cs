@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOP_A06_Architecture.Data_Access;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace OOP_A06_Architecture.Domain
 {
     class Logic
     {
+        DataRW dal = new DataRW();
 
     }
 }

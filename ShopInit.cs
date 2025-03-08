@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP_A06_Architecture.Domain
+namespace OOP_A06_Architecture
 {
-    class GameStock
+    class ShopInit
     {
+
+        ///creaste cases and exit functionality
     }
 }
