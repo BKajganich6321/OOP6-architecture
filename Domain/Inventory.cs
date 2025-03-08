@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace OOP_A06_Architecture.Domain
         }
 
         //Methods
-        
+
         //Add a game
         internal void AddGame(Game game)
         {
@@ -34,33 +35,13 @@ namespace OOP_A06_Architecture.Domain
         //Remove a game
         internal void RemoveGame(Game game)
         {
- 
+            gameList.Remove(game);
         }
 
         //Clear the List
         internal void WipeInventory()
         {
             gameList.Clear();
-        }
-
-        internal double StockValue()
-        {
-            double stockValue = 0;
-            foreach(Game game in gameList)
-            {
-                if(game.Stock > 0)
-                {
-                    
-                    stockValue += (game.Price*game.Stock);
-                }
-
-            }
-            return stockValue / gameList.Count;
-        }
-
-        internal bool Exists(Game game)
-        {
-            return gameList.Contains(game);
         }
     }
              

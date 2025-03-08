@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace OOP_A06_Architecture.Data_Access
 {
-    public class DataRW
+    internal class DataRW
     {
         //initialize variables to read/write to file
         FileStream outputFile = null;
         StreamReader reader = null;
         StreamWriter writer = null;
 
-        void WriteOutput(string gameData, string fileName)
+        internal void WriteOutput(string gameData, string fileName)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace OOP_A06_Architecture.Data_Access
         /// </summary>
         /// <param name="gameData"></param>
         /// <returns></returns>
-        string ReadOutput(string fileName)
+        internal string ReadOutput(string fileName)
         {
             string gameData = "";
             try

@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace OOP_A06_Architecture
 {
-    class ShopInit
+    class OpenShop
     {
+        internal OpenShop()
+        {
 
+        }
+    }
         ///creaste cases and exit functionality
     }
 }

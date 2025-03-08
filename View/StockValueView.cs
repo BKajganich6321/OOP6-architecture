@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace OOP_A06_Architecture.View
 {
     class StockValueView
-    {
+    { 
+        UI.ClearScreen();
     }
 }

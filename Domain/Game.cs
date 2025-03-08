@@ -65,6 +65,11 @@ namespace OOP_A06_Architecture.Domain
         internal void ChangeStock(Game game, int change)
         {
             game.Stock += change;
-        }   
+        }
+
+        internal double StockWorth(Game game)
+        {
+            return game.Stock * game.Price;
+        }
     }
 }
