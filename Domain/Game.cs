@@ -8,7 +8,7 @@ namespace OOP_A06_Architecture.Domain
 {
     internal class Game
     {
-        private static int baseID = 100;
+        //Initialize the Properties of the struct
         private double price;
         private Guid gameID;
         private string manufacturer;
@@ -44,13 +44,12 @@ namespace OOP_A06_Architecture.Domain
             set { name = value; }
         } 
         
-        ///Constructors
-        
+        ///Constructors - first for one created in the application, 
         internal Game()
         {
             GameID = Guid.NewGuid();
         }
-
+        // Second Constructor for instances created from the Data Access Files
         internal Game(double price, string manufacturer, int stock, string name)
         {
             Price = price;
@@ -62,14 +61,21 @@ namespace OOP_A06_Architecture.Domain
 
         //Methods
 
-        internal void ChangeStock(Game game, int change)
-        {
-            game.Stock += change;
-        }
 
-        internal double StockWorth(Game game)
+        /// <summary>
+        /// StockWorth - Returns a double: the product of the Stock of the Game (if positive) and the Game's assigned estimateed value
+        /// </summary>
+        /// <returns></returns>
+        internal double StockWorth()
         {
-            return game.Stock * game.Price;
+            if (this.Stock > 0)
+            {
+                return this.Stock * this.Price;
+            }
+            else
+            { 
+                return 0;
+            }
         }
     }
 }

@@ -9,15 +9,24 @@ using System.Threading.Tasks;
 
 namespace OOP_A06_Architecture.Domain
 {
-    internal class Logic
+    static internal class Logic
     {
-        DataRW dataRW = new DataRW();
-        string record;
-        string[] gameData;
-        string[] gameArray;
+        //initializes an instanc of Data Access for reading/writing from file onto memoory
+        static DataRW dataRW = new DataRW();
+        
 
-        internal Inventory ReadGames(string fileName)
+        /// <summary>
+        /// Read Games - Takes a giiven filename and formats the existing inventory Data such that it can be saved to, loaded from
+        ///             and externally viewed with understanding.  The ReadGames function calls the Data Access to provide the file, 
+        ///             parses the data and saves it to a local copy of the list
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        static internal Inventory ReadGames(string fileName)
         {
+            string[] gameArray;
+            string[] gameData;
+            string record = "";
             Inventory inventory = new Inventory();
             if (File.Exists(fileName))
             {
@@ -48,9 +57,36 @@ namespace OOP_A06_Architecture.Domain
             }
             return inventory;            
         }
+        
 
-        internal Inventory WriteGames(string fileName, Inventory games)
+        /// <summary>
+        /// WriteGamesToFile = takes a atring (derived from SaveAsString) and writes it to a given filename after con
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="entireInventory"></param>
+        static internal void WriteGamesToFile(string fileName, string entireInventory)
         {
+            dataRW.WriteOutput(entireInventory, fileName);
+        }
+
+        /// <summary>
+        /// SaveAsString - Takes a given inventory and saves it to a string in the same format as would be read from an alternative file
+        /// </summary>
+        /// <param name="games"></param>
+        /// <returns></returns>
+        static internal string SaveAsString(Inventory games)
+        {
+            string tempGames = "";
+            List<Game> gameArray = games.GameList;
+            foreach (Game game in gameArray)
+            {
+                tempGames += game.Name + "|"
+                           + game.Manufacturer + "|"
+                           + game.Price.ToString() + "|"
+                           + game.GameID.ToString() + "|"
+                           + game.Stock.ToString() + "\n";
+            }
+            return tempGames;
         }
     }
 }

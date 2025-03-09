@@ -12,8 +12,14 @@ namespace OOP_A06_Architecture.Data_Access
         //initialize variables to read/write to file
         FileStream outputFile = null;
         StreamReader reader = null;
-        StreamWriter writer = null;
+        StreamWriter writer = null;   
 
+        /// <summary>
+        /// WriteOutput - Opens FileStream and writer and writes "gameData" into the file
+        ///               Catches any exceptions and then closes the writer and strema
+        /// </summary>
+        /// <param name="gameData"></param>
+        /// <param name="fileName"></param>
         internal void WriteOutput(string gameData, string fileName)
         {
             try
@@ -24,24 +30,26 @@ namespace OOP_A06_Architecture.Data_Access
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                UI.Display(ex.ToString());
             }
             finally
             {
-                if (outputFile != null)
-                {
-                    outputFile.Close();
-                }
                 if (writer != null)
                 {
                     writer.Close();
                 }
+                if (outputFile != null)
+                {
+                    outputFile.Close();
+                }
+              
             }
 
         }
 
         /// <summary>
-        /// 
+        /// ReadOutput - Opens the FileStream and Reader, reads the file onto a string and returns that string after
+        ///              closing the reader and stream, respectively
         /// </summary>
         /// <param name="gameData"></param>
         /// <returns></returns>
@@ -50,23 +58,23 @@ namespace OOP_A06_Architecture.Data_Access
             string gameData = "";
             try
             {
-                outputFile = new FileStream(fileName, FileMode.Open);
+                outputFile = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read);
                 reader = new StreamReader(outputFile);
                 gameData = reader.ReadToEnd();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                UI.Display(e.ToString());
             }
             finally
             {
-                if (fileName != null)
-                {
-                    outputFile.Close();
-                }
                 if (reader != null)
                 {
                     reader.Close();
+                }
+                if (fileName != null)
+                {
+                    outputFile.Close();
                 }
             }
             return gameData;

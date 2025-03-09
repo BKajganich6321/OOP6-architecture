@@ -9,14 +9,13 @@ namespace OOP_A06_Architecture.View
 {
     internal class AddGameView
     {
-        Logic logic = new Logic();
         internal void NewGame(Inventory inventory)
         {
             UI.ClearScreen();
-            Game game = new Game();         
-                
+            Game game = new Game();
+
             UI.Display("Please Enter the Game Title");
-            game.Manufacturer = UI.GetString();
+            game.Name = UI.GetString();
 
             UI.Display("Please Enter the Game Manufacturer");
             game.Manufacturer = UI.GetString();
@@ -26,6 +25,8 @@ namespace OOP_A06_Architecture.View
             
             UI.Display("Please Enter the Game Stock");
             game.Stock = UI.GetInt();
+
+            inventory.AddGame(game);
         }
     }
 }
