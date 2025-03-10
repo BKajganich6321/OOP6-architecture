@@ -1,4 +1,12 @@
-﻿using OOP_A06_Architecture.View;
+﻿/*/
+*FILE : Inventory.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class for handling Inventory functionality, including creation, deletion, and searching and inserting
+/*/
+
+using OOP_A06_Architecture.View;
 
 namespace OOP_A06_Architecture.Domain
 {

@@ -1,10 +1,12 @@
-﻿using OOP_A06_Architecture.Domain;
+﻿/*/
+*FILE : OpenShop.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class for handling menu display and user choices
+/*/
 using OOP_A06_Architecture.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OOP_A06_Architecture.Domain;
 
 namespace OOP_A06_Architecture
 {
@@ -66,7 +68,7 @@ namespace OOP_A06_Architecture
                         run = false;
                         break;
                     default:
-                        UI.Display("The number chosen must be a menu number, 1-6");
+                        UI.Display("The number chosen must be a menu number, 1-8");
                         break;
                 } 
             }

@@ -1,4 +1,12 @@
-﻿using OOP_A06_Architecture.Domain;
+﻿/*/
+*FILE : LoadGamesView.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class for handling operations to Load a new inventory, replacing current one
+/*/
+
+using OOP_A06_Architecture.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +17,11 @@ namespace OOP_A06_Architecture.View
 {
     class LoadGamesView
     {
+        /// <summary>
+        /// LoadData: Prompts user for filename, verifies deletion of current data, wipes inventory and loads new one if found.
+        /// </summary>
+        /// <param name="inventory"></param>
+        /// <returns></returns>
         internal Inventory LoadData(Inventory inventory)
         {
             string fileName;

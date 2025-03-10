@@ -1,4 +1,11 @@
-﻿using OOP_A06_Architecture.Data_Access;
+﻿/*/
+*FILE : Logic.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class handling indirect operations between Domain/Data_Access namespaces
+/*/
+using OOP_A06_Architecture.Data_Access;
 using OOP_A06_Architecture.View;
 using System;
 using System.Collections.Generic;
@@ -13,7 +20,6 @@ namespace OOP_A06_Architecture.Domain
     {
         //initializes an instanc of Data Access for reading/writing from file onto memoory
         static DataRW dataRW = new DataRW();
-        
 
         /// <summary>
         /// Read Games - Takes a giiven filename and formats the existing inventory Data such that it can be saved to, loaded from
@@ -60,13 +66,29 @@ namespace OOP_A06_Architecture.Domain
         
 
         /// <summary>
-        /// WriteGamesToFile = takes a atring (derived from SaveAsString) and writes it to a given filename after con
+        /// WriteGamesToFile = takes a string (derived from SaveAsString) and writes it to a given filename after con
         /// </summary>
         /// <param name="fileName"></param>
         /// <param name="entireInventory"></param>
         static internal void WriteGamesToFile(string fileName, string entireInventory)
         {
-            dataRW.WriteOutput(entireInventory, fileName);
+            if(File.Exists(fileName))
+            {
+                if (UI.ConfirmOverwrite())
+                {
+                    dataRW.WriteOutput(entireInventory, fileName);
+                }
+                else
+                {
+                    UI.Display("Save cancelled. Press any key to continue");
+                    UI.GetKey();
+                }
+            }
+            else
+            {
+                dataRW.WriteOutput(entireInventory, fileName);
+            }
+            
         }
 
         /// <summary>

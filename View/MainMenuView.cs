@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*/
+*FILE : MainMenuView.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class displaying the Main Menu
+/*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

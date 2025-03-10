@@ -1,4 +1,11 @@
-﻿using OOP_A06_Architecture.View;
+﻿/*/
+*FILE : DataRW.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class for handling backend system communications with Saving and Reading file functionality
+/*/
+using OOP_A06_Architecture.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;

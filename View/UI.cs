@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*/
+*FILE : UIView.cs
+* PROJECT : OOP Assignment 6
+* PROGRAMMER : Brad Kajganich
+* FIRST VERSION : 2025 - 3 - 9
+* DESCRIPTION : Class for handling operations involving direct user contact
+/*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,7 +50,7 @@ namespace OOP_A06_Architecture.View
 
         /// <summary>
         /// Confirm Overwrite. Boolean method that warnes the user that their chosen mmethod may cause conflicting and/or existing data to be overwritten
-        /// Returns true after confirmation
+        /// Returns true after confirmation.
         /// </summary>
         /// <returns></returns>
         static internal bool ConfirmOverwrite()
